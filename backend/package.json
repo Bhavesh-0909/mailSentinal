@@ -13,8 +13,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
     "express": "^5.2.1",
     "mailparser": "^3.9.1",
+    "pg": "^8.17.1",
     "smtp-server": "^3.18.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.8"
   }
 }
