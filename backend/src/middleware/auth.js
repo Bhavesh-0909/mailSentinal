@@ -13,7 +13,7 @@ export const authenticateToken = (req, res, next) => {
       message: 'Access token required' 
     });
   }
-
+  console.log(token)
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) {
       return res.status(403).json({ 
