@@ -36,6 +36,10 @@ app.post("/send-email", async (req, res) => {
 // Incoming SES emails
 app.use(sesWebhook);
 
+app.get('/health', (req, res)=>{
+  return res.send("server running");
+});
+
 app.listen(3000, () => {
   console.log("Email backend running on port 3000");
 });
