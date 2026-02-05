@@ -63,14 +63,13 @@ router.post("/ses/inbound", async (req: Request, res: Response) => {
         ],
       });
 
-      const spamStatus = receipt?.spamVerdict?.status;
 
       await db.insert(rawEmails).values({
         sesMessageId: mail.messageId,
         sesReceiptRule: receipt?.ruleName,
 
         from: parsed?.from?.text || mail.commonHeaders.from?.[0] || "",
-        to: parsed?.to?.text || mail.commonHeaders.to?.join(", ") || "",
+        to: parsed?.to ? (Array.isArray(parsed.to) ? parsed.to[0].text : parsed.to.text): "",
 
         subject: parsed?.subject || mail.commonHeaders.subject || null,
 
